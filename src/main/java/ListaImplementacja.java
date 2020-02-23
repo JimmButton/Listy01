@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ListaImplementacja implements Lista {
 
     private int [] liczby;
@@ -11,7 +13,25 @@ public class ListaImplementacja implements Lista {
         this.liczby = new int[pojemnosc];
 }
 
-    public void dodajElement(int liczba) {
+//    public void dodajElement(int liczba) {
+//        if (this. rozmiar == this.pojemnosc){
+//            System.out.println("Tablica jest pełna");
+//            this.liczby = Arrays.copyOf(this.liczby, this.liczby.length*2);
+//            this.rozmiar = this.liczby.length;
+//        }
+//        else {
+//            this.liczby[rozmiar] = liczba;
+//            rozmiar++;
+public void dodajElement(int liczba) {
+    if (this.liczby.length > rozmiar) {
+        this.liczby[rozmiar] = liczba;
+        rozmiar++;
+    }
+    else {
+        this.liczby = Arrays.copyOf(liczby,liczby.length + 10);
+        this.liczby[rozmiar] = liczba;
+        rozmiar++;
+        }
 
     }
 
@@ -20,8 +40,14 @@ public class ListaImplementacja implements Lista {
     }
 
     public String pisz() {
-        return null;
+        return "liczby " + Arrays.toString(liczby);
+
     }
+//    public String toString(){
+//        return "Test";
+//    }
+
+
 
     public boolean usunPierwszy(int liczba) {
         return false;
